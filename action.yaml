@@ -24,8 +24,8 @@ runs:
 
     - name: Download skopeo binary
       shell: bash
-      run: wget https://github.com/lework/skopeo-binary/releases/download/1.18.0/skopeo-linux-${ARCH} -O /usr/bin/skopeo
+      run: sudo wget https://github.com/lework/skopeo-binary/releases/download/1.18.0/skopeo-linux-${ARCH} -O /usr/bin/skopeo
 
     - name: Set execute permissions for skopeo
       shell: bash
-      run: chmod +x /usr/bin/skopeo
+      run: sudo chmod +x /usr/bin/skopeo
