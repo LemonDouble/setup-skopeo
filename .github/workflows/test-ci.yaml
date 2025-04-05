@@ -19,3 +19,5 @@ jobs:
 
       - name: Test Action
         uses: ./
+        with:
+          version: v1.17.0
