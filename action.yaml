@@ -42,4 +42,6 @@ runs:
 
     - name: Download Default Policy
       shell: bash
-      run: sudo wget https://raw.githubusercontent.com/LemonDouble/setup-skopeo/refs/heads/main/default-policy.json -O ~/.config/containers/policy.json
+      run: | 
+        mkdir -p ~/.config/containers
+        sudo wget https://raw.githubusercontent.com/LemonDouble/setup-skopeo/refs/heads/main/default-policy.json -O ~/.config/containers/policy.json
