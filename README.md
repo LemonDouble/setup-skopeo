@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Skopeo
-        uses: LemonDouble/setup-skopeo@v1.0.0
+        uses: LemonDouble/skopeo-setup-action@v1.0.0
         with:
           version: v1.18.0   # Optional: defaults to 'v1.18.0'
 ```
