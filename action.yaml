@@ -4,7 +4,13 @@ author: contact@lemondouble.com
 branding:
   color: yellow
   icon: download-cloud
-    
+
+inputs:
+  version:
+    description: 'Version of skopeo to install'
+    required: false
+    default: 'v1.18.0'
+
 runs:
   using: "composite"
   steps:
@@ -28,7 +34,7 @@ runs:
 
     - name: Download skopeo binary
       shell: bash
-      run: sudo wget https://github.com/lework/skopeo-binary/releases/download/v1.18.0/skopeo-linux-${ARCH} -O /usr/bin/skopeo
+      run: sudo wget https://github.com/lework/skopeo-binary/releases/download/${INPUT_VERSION}/skopeo-linux-${ARCH} -O /usr/bin/skopeo
 
     - name: Set execute permissions for skopeo
       shell: bash
