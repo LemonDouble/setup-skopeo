@@ -8,6 +8,10 @@ branding:
 runs:
   using: "composite"
   steps:
+    - name: setup items
+      shell: bash
+      run: sudo apt update -y && sudo apt install wget -y
+
     - name: Determine architecture and set ARCH variable
       id: determine_arch
       shell: bash
