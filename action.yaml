@@ -1,0 +1,29 @@
+name: 'skopeo-setup-action'
+description: 'Setup Skopeo'
+author: contact@lemondouble.com
+branding:
+  color: yellow
+  icon: download-cloud
+    
+runs:
+  using: "composite"
+  steps:
+    - name: Determine architecture and set ARCH variable
+      id: determine_arch
+      shell: bash
+      run: |
+        current_arch=$(arch)
+        if [[ "$current_arch" == "x86_64" ]]; then
+          echo "ARCH=amd64" >> $GITHUB_ENV
+        elif [[ "$current_arch" == "aarch64" || "$current_arch" == "arm64" ]]; then
+          echo "ARCH=arm64" >> $GITHUB_ENV
+        else
+          echo "Unsupported architecture: $current_arch" >&2
+          exit 1
+        fi
+
+    - name: Download skopeo binary
+      run: wget https://github.com/lework/skopeo-binary/releases/download/1.18.0/skopeo-linux-${ARCH} -O /usr/bin/skopeo
+
+    - name: Set execute permissions for skopeo
+      run: chmod +x /usr/bin/skopeo
