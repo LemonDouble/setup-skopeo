@@ -39,3 +39,7 @@ runs:
     - name: Set execute permissions for skopeo
       shell: bash
       run: sudo chmod +x /usr/bin/skopeo
+
+    - name: Download Default Policy
+      shell: bash
+      run: sudo wget https://raw.githubusercontent.com/LemonDouble/setup-skopeo/refs/heads/main/default-policy.json -O ~/.config/containers/policy.json
